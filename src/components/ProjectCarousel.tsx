@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { Card } from './ui/card';
-import { Badge } from './ui/badge';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState, useRef, useEffect } from "react";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "motion/react";
 
 interface SmallProject {
   title: string;
@@ -13,64 +13,74 @@ interface SmallProject {
 
 const otherProjects: SmallProject[] = [
   {
-    title: 'Personal Portfolio Website',
-    description: 'Modern portfolio showcasing projects with responsive design and smooth animations.',
-    tags: ['React', 'TypeScript', 'Tailwind'],
-    github: 'https://github.com/NagelDylan/Personal-Portfolio-Website',
+    title: "Ice Cold Butter Beer",
+    description:
+      "Retro arcade game recreation with six unique modes and advanced ball physics simulation.",
+    tags: ["C#", "MonoGame", "Physics"],
+    github: "https://github.com/NagelDylan/IceColdButterBeer",
   },
   {
-    title: 'Whitby Medical Clinic',
-    description: 'Professional medical clinic website with responsive design achieving 55% improved user engagement.',
-    tags: ['JavaScript', 'HTML', 'CSS'],
-    github: 'https://github.com/NagelDylan/MedicalClinic',
+    title: "SpotifAI",
+    description:
+      "AI-powered Spotify integration tool for enhanced music discovery and playlist management.",
+    tags: ["JavaScript", "Spotify API", "AI"],
+    github: "https://github.com/NagelDylan/SpotifAI",
   },
   {
-    title: 'Ice Cold Butter Beer',
-    description: 'Retro arcade game recreation with six unique modes and advanced ball physics simulation.',
-    tags: ['C#', 'MonoGame', 'Physics'],
-    github: 'https://github.com/NagelDylan/IceColdButterBeer',
+    title: "Minecraft Mayhem",
+    description:
+      "Galaga-style arcade shooter blended with Minecraft enemies and pixelated aesthetics.",
+    tags: ["C#", "MonoGame", "Game Dev"],
+    github: "https://github.com/NagelDylan/Minecraft-Mayhem",
   },
   {
-    title: 'Minecraft Mayhem',
-    description: 'Galaga-style arcade shooter blended with Minecraft enemies and pixelated aesthetics.',
-    tags: ['C#', 'MonoGame', 'Game Dev'],
-    github: 'https://github.com/NagelDylan/Minecraft-Mayhem',
+    title: "Personal Portfolio Website",
+    description:
+      "Modern portfolio showcasing projects with responsive design and smooth animations.",
+    tags: ["React", "TypeScript", "Tailwind"],
+    github: "https://github.com/NagelDylan/Personal-Portfolio-Website",
   },
   {
-    title: 'SpeakType',
-    description: 'Finally, a genuinely good voice to text system with real-time transcription.',
-    tags: ['Python', 'JavaScript', 'Speech API'],
-    github: 'https://github.com/NagelDylan/SpeakType',
+    title: "Recipe Finder",
+    description:
+      "Search recipes based on ingredients with dietary filtering and nutritional preferences.",
+    tags: ["HTML", "JavaScript", "API"],
+    github: "https://github.com/NagelDylan/RecipeFinder",
   },
   {
-    title: 'Sniper Assassin',
-    description: 'Tactical shooter game through sniper scope with UAV system for strategic planning.',
-    tags: ['C#', 'MonoGame', 'Game Dev'],
-    github: 'https://github.com/NagelDylan/Sniper-Assassin',
+    title: "Sniper Assassin",
+    description:
+      "Tactical shooter game through sniper scope with UAV system for strategic planning.",
+    tags: ["C#", "MonoGame", "Game Dev"],
+    github: "https://github.com/NagelDylan/Sniper-Assassin",
   },
   {
-    title: 'Recipe Finder',
-    description: 'Search recipes based on ingredients with dietary filtering and nutritional preferences.',
-    tags: ['HTML', 'JavaScript', 'API'],
-    github: 'https://github.com/NagelDylan/RecipeFinder',
+    title: "Wordle Clone",
+    description:
+      "Recreation of the popular word puzzle game with local statistics tracking.",
+    tags: ["C#", "MonoGame", "Game Dev"],
+    github: "https://github.com/NagelDylan/Wordle",
   },
   {
-    title: 'SpotifAI',
-    description: 'AI-powered Spotify integration tool for enhanced music discovery and playlist management.',
-    tags: ['JavaScript', 'Spotify API', 'AI'],
-    github: 'https://github.com/NagelDylan/SpotifAI',
+    title: "Whitby Medical Clinic",
+    description:
+      "Professional medical clinic website with responsive design achieving 55% improved user engagement.",
+    tags: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/NagelDylan/MedicalClinic",
   },
   {
-    title: 'Wordle Clone',
-    description: 'Recreation of the popular word puzzle game with local statistics tracking.',
-    tags: ['C#', 'MonoGame', 'Game Dev'],
-    github: 'https://github.com/NagelDylan/Wordle',
+    title: "SpeakType",
+    description:
+      "Finally, a genuinely good voice to text system with real-time transcription.",
+    tags: ["Python", "JavaScript", "Speech API"],
+    github: "https://github.com/NagelDylan/SpeakType",
   },
   {
-    title: 'Tic Tac Toe',
-    description: 'Classic Tic Tac Toe game with clean UI and multiplayer support.',
-    tags: ['C#', 'MonoGame', 'Game Dev'],
-    github: 'https://github.com/NagelDylan/TicTacToe',
+    title: "Tic Tac Toe",
+    description:
+      "Classic Tic Tac Toe game with clean UI and multiplayer support.",
+    tags: ["C#", "MonoGame", "Game Dev"],
+    github: "https://github.com/NagelDylan/TicTacToe",
   },
 ];
 
@@ -91,8 +101,8 @@ export function ProjectCarousel() {
     };
 
     updateItemsPerView();
-    window.addEventListener('resize', updateItemsPerView);
-    return () => window.removeEventListener('resize', updateItemsPerView);
+    window.addEventListener("resize", updateItemsPerView);
+    return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
 
   const maxIndex = Math.max(0, otherProjects.length - itemsPerView);
@@ -141,24 +151,36 @@ export function ProjectCarousel() {
             <div
               className="flex transition-transform duration-500 ease-in-out gap-6"
               style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                transform: `translateX(-${
+                  currentIndex * (100 / itemsPerView)
+                }%)`,
               }}
             >
               {otherProjects.map((project, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0"
-                  style={{ width: `calc(${100 / itemsPerView}% - ${(itemsPerView - 1) * 24 / itemsPerView}px)` }}
+                  style={{
+                    width: `calc(${100 / itemsPerView}% - ${
+                      ((itemsPerView - 1) * 24) / itemsPerView
+                    }px)`,
+                  }}
                 >
                   <Card
                     className="bg-[#1A1A1A] border-white/10 p-6 cursor-pointer group hover:border-[#3369FF]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#3369FF]/20 h-full"
-                    onClick={() => window.open(project.github, '_blank')}
+                    onClick={() => window.open(project.github, "_blank")}
                   >
                     <h3 className="mb-2">{project.title}</h3>
-                    <p className="text-[#E0E0E0] mb-4 min-h-[3rem]">{project.description}</p>
+                    <p className="text-[#E0E0E0] mb-4 min-h-[3rem]">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="bg-[#2A2A2A] text-[#E0E0E0]">
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="bg-[#2A2A2A] text-[#E0E0E0]"
+                        >
                           {tag}
                         </Badge>
                       ))}
@@ -176,7 +198,9 @@ export function ProjectCarousel() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-[#3369FF] w-8' : 'bg-white/30 hover:bg-white/50'
+                  index === currentIndex
+                    ? "bg-[#3369FF] w-8"
+                    : "bg-white/30 hover:bg-white/50"
                 }`}
               />
             ))}

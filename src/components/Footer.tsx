@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex gap-6">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/nageldylan/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-[#1A1A1A] border border-white/10 rounded-full hover:border-[#3369FF] hover:bg-[#3369FF]/10 transition-all duration-300 group"
@@ -17,7 +17,7 @@ export function Footer() {
               <Linkedin className="w-6 h-6 text-[#E0E0E0] group-hover:text-[#3369FF] transition-colors duration-300" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/nageldylan"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-[#1A1A1A] border border-white/10 rounded-full hover:border-[#3369FF] hover:bg-[#3369FF]/10 transition-all duration-300 group"
@@ -26,7 +26,7 @@ export function Footer() {
               <Github className="w-6 h-6 text-[#E0E0E0] group-hover:text-[#3369FF] transition-colors duration-300" />
             </a>
             <a
-              href="mailto:dylan@example.com"
+              href="mailto:dylannagel05@gmail.com"
               className="p-3 bg-[#1A1A1A] border border-white/10 rounded-full hover:border-[#3369FF] hover:bg-[#3369FF]/10 transition-all duration-300 group"
               aria-label="Email"
             >
