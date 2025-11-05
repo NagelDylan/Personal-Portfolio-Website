@@ -1,7 +1,8 @@
-import { motion } from 'motion/react';
-import { Button } from './ui/button';
-import { Download } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from "motion/react";
+import { Button } from "./ui/button";
+import { Download } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import meImg from "../../public/me.jpeg";
 
 export function About() {
   return (
@@ -26,12 +27,12 @@ export function About() {
           >
             <div className="relative rounded-2xl overflow-hidden aspect-square border-4 border-[#3369FF]/30 hover:border-[#3369FF] transition-all duration-300">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1555963153-11ff60182d08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBoZWFkc2hvdHxlbnwxfHx8fDE3NjIyNjU0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src={meImg}
                 alt="Dylan Nagel"
                 className="w-full h-full object-cover"
               />
               {/* Decorative gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3369FF]/20 to-transparent" />
+              <div className="absolute inset-0" />
             </div>
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#3369FF]/10 rounded-full blur-2xl" />
@@ -46,23 +47,25 @@ export function About() {
           >
             <h3 className="text-[#3369FF]">A bit more about me.</h3>
             <p className="text-[#E0E0E0]">
-              I'm a passionate problem-solver currently studying Computer Science at the University
-              of Waterloo. Driven by curiosity, I love diving deep into the full stack, from
-              building intuitive React frontends to engineering scalable and efficient backend
-              systems.
+              I'm a passionate problem-solver currently studying Computer
+              Science at the University of Waterloo. Driven by curiosity, I love
+              diving deep into the full stack, from building intuitive React
+              frontends to engineering scalable and efficient backend systems.
             </p>
             <p className="text-[#E0E0E0]">
-              My approach to software development is rooted in understanding the bigger picture
-              while obsessing over the details. I believe great software is born from the
-              intersection of elegant code, thoughtful design, and real-world problem solving.
-              Whether it's optimizing database queries, implementing AI-powered features, or
-              crafting pixel-perfect interfaces, I bring the same level of dedication to every
-              project.
+              My approach to software development is rooted in understanding the
+              bigger picture while obsessing over the details. I believe great
+              software is born from the intersection of elegant code, thoughtful
+              design, and real-world problem solving. Whether it's optimizing
+              database queries, implementing AI-powered features, or crafting
+              pixel-perfect interfaces, I bring the same level of dedication to
+              every project.
             </p>
             <p className="text-[#E0E0E0]">
-              When I'm not at my keyboard, you'll find me exploring new technologies, contributing
-              to open source projects, or brainstorming the next big idea. I'm always eager to
-              learn, collaborate, and push the boundaries of what's possible with code.
+              When I'm not at my keyboard, you'll find me exploring new
+              technologies, contributing to open source projects, or
+              brainstorming the next big idea. I'm always eager to learn,
+              collaborate, and push the boundaries of what's possible with code.
             </p>
             <Button
               asChild
