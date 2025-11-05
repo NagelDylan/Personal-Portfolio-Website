@@ -285,6 +285,7 @@ const StyledCard = styled.div`
     img {
       aspect-ratio: 405/360;
       object-fit: cover;
+      width: 100%;
     }
   }
 
