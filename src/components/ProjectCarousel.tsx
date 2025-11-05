@@ -13,6 +13,12 @@ interface SmallProject {
 
 const otherProjects: SmallProject[] = [
   {
+    title: 'Personal Portfolio Website',
+    description: 'Modern portfolio showcasing projects with responsive design and smooth animations.',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+    github: 'https://github.com/NagelDylan/Personal-Portfolio-Website',
+  },
+  {
     title: 'Whitby Medical Clinic',
     description: 'Professional medical clinic website with responsive design achieving 55% improved user engagement.',
     tags: ['JavaScript', 'HTML', 'CSS'],
