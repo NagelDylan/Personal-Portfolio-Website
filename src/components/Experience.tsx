@@ -39,11 +39,11 @@ const experiences: ExperienceItem[] = [
   },
   {
     logo: whitbyMedicalLogo,
-    date: "May 2024 – Jan. 2025",
+    date: "Aug. 2023 – Jan. 2024",
     role: "Website Developer",
     company: "Whitby Medical",
     description:
-      "Independently drove the design, development, and deployment of Empathia.ai's website using React and Node.js. Created a modern, responsive user interface with smooth animations and optimal performance. Implemented SEO best practices and analytics tracking to monitor user engagement. Successfully launched the website on schedule, establishing the company's digital presence.",
+      "Led the complete redesign and development of Whitby Medical Clinic's website, collaborating with clinic staff to create a modern, patient-focused digital platform. Built a fully responsive site using vanilla JavaScript, HTML, and CSS with 10+ interactive components and intuitive cross-device navigation. Implemented CloudFlare CDN optimization and SEO best practices, achieving a 55% increase in user engagement.",
   },
 ];
 

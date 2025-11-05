@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink, Github, Award, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import AcronymizeGif from "../../public/acronymize.gif";
+import TanksGif from "../../public/tanks.gif";
+import Flowsense from "../../public/flowsense.gif";
+import styled from "styled-components";
 
 interface Project {
   title: string;
@@ -34,23 +37,9 @@ const projects: Project[] = [
       "Clerk",
       "Neon",
     ],
-    image:
-      "https://images.unsplash.com/photo-1659018966825-43297e655ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwZGFzaGJvYXJkJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc2MjI3NDc0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: AcronymizeGif,
     github: "https://github.com/NagelDylan/Acronymize",
     demo: "https://www.acronymize.fun",
-  },
-  {
-    title: "FlowSense",
-    description:
-      "Interactive reading tool with OpenAI GPT integration for context-aware definitions and inline notes.",
-    fullDescription:
-      "FlowSense is an innovative reading platform designed to make complex documents and technical reports more accessible. Built during Hack the 6ix 2024, the platform addresses the challenge of understanding foreign concepts in lengthy documents by providing instant, context-aware definitions using OpenAI's GPT API. Users can upload PDF files which are processed while preserving the original formatting, enabling inline notes and keyboard shortcuts for seamless interaction without breaking reading flow. The application features a clean tab-based interface for organizing multiple documents, with definitions that incorporate the surrounding text context for maximum relevance. Built with React for the frontend, Django for the backend API, and PostgreSQL for data persistence, FlowSense demonstrates effective integration of AI to enhance the reading and learning experience for technical content.",
-    tags: ["React", "Django", "PostgreSQL", "OpenAI", "Python", "TypeScript"],
-    image:
-      "https://images.unsplash.com/photo-1742072594003-abf6ca86e154?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGluZyUyMHNjcmVlbnxlbnwxfHx8fDE3NjIyNzQ3NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    badge: "🏆 Built at Hack the 6ix 2024",
-    github: "https://github.com/NagelDylan/FlowSense",
-    video: "https://www.youtube.com/watch?v=2c1xXcaIki8",
   },
   {
     title: "Tanks",
@@ -59,10 +48,21 @@ const projects: Project[] = [
     fullDescription:
       "Tanks is a meticulously crafted recreation of the classic 'Tanks!' game from Wii's 'Wii Play', blending nostalgia with modern game development techniques. Built entirely in C# using the MonoGame framework, the game features customized pathfinding algorithms where each enemy tank exhibits unique personality traits that influence their movement and strategy. The project tackles several sophisticated challenges including precise mathematical auto-aiming mechanisms for enemy tanks, comprehensive collision detection systems for bullets, walls, tanks, water and other elements, and efficient game state preservation that tracks stars, statistics, and unlocked levels across sessions. The development demonstrates strong object-oriented programming principles with clean architecture and design patterns, while the advanced AI pathfinding creates dynamic and engaging tactical gameplay. The game showcases technical proficiency in game physics, geometry calculations, and state management.",
     tags: ["C#", "MonoGame", ".NET", "Game Dev"],
-    image:
-      "https://images.unsplash.com/photo-1622050756792-5b1180bbb873?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwcHJvamVjdHxlbnwxfHx8fDE3NjIyNzQ3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: TanksGif,
     github: "https://github.com/NagelDylan/Tanks",
     video: "https://youtu.be/OBn8ILREHPM",
+  },
+  {
+    title: "FlowSense",
+    description:
+      "Interactive reading tool with OpenAI GPT integration for context-aware definitions and inline notes.",
+    fullDescription:
+      "FlowSense is an innovative reading platform designed to make complex documents and technical reports more accessible. Built during Hack the 6ix 2024, the platform addresses the challenge of understanding foreign concepts in lengthy documents by providing instant, context-aware definitions using OpenAI's GPT API. Users can upload PDF files which are processed while preserving the original formatting, enabling inline notes and keyboard shortcuts for seamless interaction without breaking reading flow. The application features a clean tab-based interface for organizing multiple documents, with definitions that incorporate the surrounding text context for maximum relevance. Built with React for the frontend, Django for the backend API, and PostgreSQL for data persistence, FlowSense demonstrates effective integration of AI to enhance the reading and learning experience for technical content.",
+    tags: ["React", "Django", "PostgreSQL", "OpenAI", "Python", "TypeScript"],
+    image: Flowsense,
+    badge: "🏆 Built at Hack the 6ix 2024",
+    github: "https://github.com/NagelDylan/FlowSense",
+    video: "https://www.youtube.com/watch?v=2c1xXcaIki8",
   },
 ];
 
@@ -106,18 +106,11 @@ export function FeaturedProjects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card
-                className="bg-[#1A1A1A] border-white/10 overflow-hidden cursor-pointer group hover:border-[#3369FF]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#3369FF]/20 h-full"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="relative overflow-hidden aspect-video">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+              <StyledCard onClick={() => setSelectedProject(project)}>
+                <div className="image-container">
+                  <img src={project.image} alt={project.title} />
                   {project.badge && (
-                    <div className="absolute top-4 left-4">
+                    <div className="badge-container">
                       <Badge className="bg-[#3369FF] text-white flex items-center gap-1">
                         <Award className="w-3 h-3" />
                         {project.badge}
@@ -125,10 +118,10 @@ export function FeaturedProjects() {
                     </div>
                   )}
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-2">{project.title}</h3>
-                  <p className="text-[#E0E0E0] mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                <div className="content">
+                  <h3>{project.title}</h3>
+                  <p className="description">{project.description}</p>
+                  <div className="tags">
                     {project.tags.map((tag) => (
                       <Badge
                         key={tag}
@@ -140,7 +133,7 @@ export function FeaturedProjects() {
                     ))}
                   </div>
                 </div>
-              </Card>
+              </StyledCard>
             </motion.div>
           ))}
         </div>
@@ -177,7 +170,7 @@ export function FeaturedProjects() {
                 </h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="aspect-video rounded-lg overflow-hidden">
+                  <div className="rounded-lg overflow-hidden">
                     <ImageWithFallback
                       src={selectedProject.image}
                       alt={selectedProject.title}
@@ -268,3 +261,55 @@ export function FeaturedProjects() {
     </section>
   );
 }
+
+const StyledCard = styled.div`
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 300ms;
+  height: 100%;
+
+  &:hover {
+    border-color: rgba(51, 105, 255, 0.5);
+    box-shadow: 0 10px 15px -3px rgba(51, 105, 255, 0.2),
+      0 4px 6px -4px rgba(51, 105, 255, 0.2);
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    height: 360px;
+
+    img {
+      aspect-ratio: 405/360;
+      object-fit: cover;
+    }
+  }
+
+  .badge-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+`;
