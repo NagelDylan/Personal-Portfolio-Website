@@ -39,7 +39,7 @@ const projects: Project[] = [
     ],
     image: AcronymizeGif,
     github: "https://github.com/NagelDylan/Acronymize",
-    demo: "https://www.acronymize.fun",
+    demo: "https://acronymize.nagelbros.com/",
   },
   {
     title: "Tanks",
